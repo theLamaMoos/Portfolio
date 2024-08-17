@@ -39,7 +39,7 @@ IF EXISTS (SELECT * FROM sys.foreign_keys WHERE [name] = 'fk_Inventory_Publicati
 BEGIN
     ALTER TABLE dbo.Inventory DROP CONSTRAINT fk_Inventory_Publication_PublicationID;
 END;
-IF NOT EXISTS (SELECT * FROM sys.key_constraints WHERE [name] = 'pk_Publication_PublicationID')
+IF EXISTS (SELECT * FROM sys.key_constraints WHERE [name] = 'pk_Publication_PublicationID')
 BEGIN
     ALTER TABLE dbo.Publication DROP CONSTRAINT pk_Publication_PublicationID;
 END;
